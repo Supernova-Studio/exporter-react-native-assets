@@ -1,0 +1,25 @@
+{
+    "id": "io.supernova.react-native-assets",
+    "name": "React Native Assets",
+    "description": "React Native Asset Exporter",
+    "author": "Jiri Trecak",
+    "organization": "Supernova",
+    "homepage": "https://supernova.io",
+    "source_dir": "src",
+    "version": "1.0",
+    "usesBrands": true,
+    "config": {
+        "sources": "sources.json",
+        "output": "output.json",
+        "js": "src/js/helpers.js"
+    },
+    "engines": {
+        "pulsar": "1.0.0",
+        "supernova": "1.0.0"
+    },
+    "tags": [
+        "Assets",
+        "React Native",
+        "PNG"
+    ]
+}

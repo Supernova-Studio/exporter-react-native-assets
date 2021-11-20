@@ -1,0 +1,26 @@
+{[ let extension = asset.format /]}
+{[ let suffix = "" /]}
+
+{[ switch asset.scale ]}
+    {[ case "x1" ]}
+        {[ suffix = "" /]}
+    {[ case "x2" ]}
+        {[ suffix = "@2x" /]}
+    {[ case "x3" ]}
+        {[ suffix = "@3x" /]}
+{[/]}
+
+{* Generate name as [originalName][-numberOfDuplicates][extension] *}
+{[ let duplicateExtension = (asset.previouslyDuplicatedNames > 0 ? ("-" + asset.previouslyDuplicatedNames) : "") /]}
+{[ let name = (asset.originalName.lowercased().replacing(" ", "-") + duplicateExtension + suffix +  "." + asset.format) /]}
+
+{* Generate path from segments *}
+{[ let path = (asset.group.path.append(asset.group.name).join("/").replacing(" ", "-").lowercased()) /]}
+{[ log path /]}
+
+{* Retrieve asset path *}
+{[ if (path.count() > 0) ]}
+    {{ path + "/" }}{{ name }}
+{[ else ]}
+    {{ name }}
+{[/]}
