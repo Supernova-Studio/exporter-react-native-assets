@@ -4,9 +4,9 @@
 [Supernova](https://supernova.io) is a design system platform that manages your assets, tokens, components and allows you to write spectacular documentations for your entire teams. And because you found your way here, you are probably interested in its most advanced functionality - automatic hand-off of design and development assets, tokens and data in general. To learn everything Supernova, please check out our [developer documentation](https://developers.supernova.io/).
 
 
-# Flutter PNG Asset Exporter
+# React Native Asset Exporter
 
-The Flutter PNG exporter allows you to **produce flutter asset packs** in such a way that it can be immediately used in your production codebase. Specifically, this exporter is capable of exporting full asset resource directory as usable vectors.
+The React Native Asset exporter allows you to **produce react native asset packs** in such a way that it can be immediately used in your production codebase. 
 
 ### Exporter Output
 
@@ -16,13 +16,11 @@ This exporter will render image assets defined inside one specific brand and wil
 /icons
    /top_menu
       |- burger.png
+      |- burger@2x.png
+      |- burger@3x.png
       |- user.png
-      /2.0x/
-         |- burger.png
-         |- user.png
-      /3.0x/
-         |- burger.png
-         |- user.png
+      |- user@2x.png
+      |- user@3x.png
 ```
 
 ### Naming
@@ -36,15 +34,18 @@ Icons
      |- user
 ```
 
-Names follow `lower_camel_case` convention and will create separate directories for each group detected. The above example will be converted to the following icon path:
+Names follow `icon-name` convention and will create separate directories for each group detected, also following `directory-name` convention. The above example will be converted to the following icon paths:
 
 ```
-/icons/top_menu/burger.png
-/icons/top_menu/2.0x/burger.png
-/icons/top_menu/3.0x/burger.png
+/icons/top-menu/burger.png
+/icons/top-menu/burger@2x.png
+/icons/top-menu/burger@3x.png
+/icons/top-menu/user.png
+/icons/top-menu/user@2x.png
+/icons/top-menu/user@3x.png
 ```
 
-This behavior can be fully customized by simply modifying the path generation template file `asset_path_flutter.pr`. Simply fork, modify and upload as your version of the exporter. If you have never done this before, [follow our guide to modifying existing exporters](https://developers.supernova.io/building-exporters/cloning-exporters).
+This behavior can be fully customized by simply modifying the path generation template file `asset_path_react_native.pr`. Simply fork, modify and upload as your version of the exporter. If you have never done this before, [follow our guide to modifying existing exporters](https://developers.supernova.io/building-exporters/cloning-exporters).
 
 ## Installing
 
